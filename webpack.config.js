@@ -69,6 +69,15 @@ Encore
             config.modules.localIdentName = '[name]_[local]_[hash:base64:5]';
         }
     })
+    .configureDevServerOptions(() => ({
+        host: '0.0.0.0',
+        public: `https://${process.env.DDEV_HOSTNAME}:444`,
+        disableHostCheck: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+        hot: true,
+    }))
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
@@ -84,5 +93,7 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
 ;
+
+if (!Encore.isProduction()) Encore.disableCssExtraction();
 
 module.exports = Encore.getWebpackConfig();

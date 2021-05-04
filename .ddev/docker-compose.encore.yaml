@@ -1,0 +1,9 @@
+version: '3.6'
+
+services:
+  web:
+    ports:
+      - 8080
+    environment:
+      HTTPS_EXPOSE: 443:80,8026:8025,444:8080
+      HTTP_EXPOSE: 80:80,8025:8025,8080:8080
