@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="col-xs-12 col-3">
-                <sidebar />
+                <sidebar :collapsed="sidebarCollapsed" />
             </aside>
             <div class="col-xs-12 col-9">
                 <catalog />
@@ -19,6 +19,11 @@ export default {
     name: 'Products',
     components: {
         Sidebar, Catalog,
+    },
+    data() {
+        return {
+            sidebarCollapsed: false,
+        };
     },
 };
 </script>

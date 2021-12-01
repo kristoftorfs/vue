@@ -43,6 +43,12 @@
 <script>
 export default {
     name: 'Sidebar',
+    props: {
+        collapsed: {
+            type: Boolean,
+            required: true,
+        },
+    },
     data() {
         return {
             categories: [{
@@ -52,7 +58,6 @@ export default {
                 name: 'Iomega Zip drives',
                 link: '#',
             }],
-            collapsed: false,
         };
     },
     computed: {
